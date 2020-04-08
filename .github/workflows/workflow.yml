@@ -1,0 +1,24 @@
+name: build
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+    - "README.md"
+    branches:
+      - master
+      - releases/*
+
+jobs:
+  build:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Lazarus
+      uses: gcarreno/setup-lazarus@v1
+      with:
+        lazarus-version: dist
+    - run: echo $(node --version)
