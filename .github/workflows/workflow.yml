@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest]
+        operating-system: [ubuntu-18.04,ubuntu-latest]
         lazarus-versions: [dist, 2.0.6, 2.0.4]
     steps:
     - uses: actions/checkout@v2
@@ -22,4 +22,8 @@ jobs:
       uses: gcarreno/setup-lazarus@v1.0.16
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
-    - run: echo $(lazbuild --version)
+    - run: |
+      echo FPC: $(fpc -iV)
+      echo Lazarus: $(lazbuild --version)
+      lazbuild tests/testconsoleapplication.lpi && \
+      bin/testconsoleapplication --all --format=plain
