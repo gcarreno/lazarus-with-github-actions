@@ -23,7 +23,7 @@ jobs:
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
     - run: |
-      echo FPC $(fpc "-iV")
-      echo Lazarus $(lazbuild "-v")
+      echo $(fpc "-iV")
+      echo $(lazbuild "--version")
       echo $(lazbuild "tests/testconsoleapplication.lpi")
       echo $(bin/testconsoleapplication "--all" "--format=plain")
