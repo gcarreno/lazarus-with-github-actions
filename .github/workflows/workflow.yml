@@ -26,4 +26,4 @@ jobs:
       echo FPC: $(fpc "-iV")
       echo Lazarus: $(lazbuild "--version")
       echo $(lazbuild "tests/testconsoleapplication.lpi")
-      echo $(bin/testconsoleapplication "--all" "--format=plain")
+      echo $(bin/testconsoleapplication "--all" "--format\=plain")
