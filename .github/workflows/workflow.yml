@@ -14,12 +14,12 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-18.04, ubuntu-latest, windows-latest]
+        operating-system: [ubuntu-18.04, ubuntu-latest, windows-latest, macos-latest]
         lazarus-versions: [dist, 2.0.6]
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v1.0.1
+      uses: gcarreno/setup-lazarus@v1.0.2
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
     - run: echo $(node --version)
