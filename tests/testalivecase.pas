@@ -23,7 +23,7 @@ implementation
 
 procedure TTestAliveCase.TestResourceUnitTitle;
 begin
-  AssertEquals('', '', rsTitle);
+  AssertEquals('Title of resources source unit', 'Github actions with Lazarus', rsTitle);
 end;
 
 
