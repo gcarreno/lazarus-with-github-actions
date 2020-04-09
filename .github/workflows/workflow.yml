@@ -22,4 +22,4 @@ jobs:
       uses: gcarreno/setup-lazarus@v1.0.14
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
-    - run: echo $(node --version)
+    - run: echo $(lazbuild --version)
