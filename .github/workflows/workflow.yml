@@ -25,5 +25,5 @@ jobs:
     - run: |
       echo FPC: $(fpc -iV)
       echo Lazarus: $(lazbuild --version)
-      lazbuild tests/testconsoleapplication.lpi && \
+      lazbuild tests/testconsoleapplication.lpi
       bin/testconsoleapplication --all --format=plain
