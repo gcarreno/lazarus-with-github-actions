@@ -1,0 +1,20 @@
+object frmMain: TfrmMain
+  Left = 390
+  Height = 307
+  Top = 250
+  Width = 589
+  Caption = 'Lazarus with GitHub Actions'
+  ClientHeight = 307
+  ClientWidth = 589
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  object Panel1: TPanel
+    Left = 0
+    Height = 307
+    Top = 0
+    Width = 589
+    Align = alClient
+    Caption = 'Panel1'
+    TabOrder = 0
+  end
+end
