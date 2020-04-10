@@ -42,7 +42,7 @@ jobs:
         operating-system: [ubuntu-18.04,ubuntu-latest]
         lazarus-versions: [dist, 2.0.6]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2.0.2
     - name: Install Lazarus
       uses: gcarreno/setup-lazarus@v1.0.34
       with:
