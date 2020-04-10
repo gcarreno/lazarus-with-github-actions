@@ -14,7 +14,7 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
-  {$IF FPC_FULLVERSION >= 30000}
+  {$IF FPC_FULLVERSION >= 30002}
   Application.Scaled:=True;
   {$ENDIF}
   Application.Initialize;
