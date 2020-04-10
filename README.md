@@ -6,7 +6,7 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 
 **Note**: For supported Lazarus versions and the associated FPC version consult the link above.
 
-![setup-lazarus logo](https://github.com/gcarreno/setup-lazarus/images/setup-lazarus-logo.png)
+![setup-lazarus logo](https://github.com/gcarreno/setup-lazarus/blob/master/images/setup-lazarus-logo.png)
 
 ## Example usage
 
