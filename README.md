@@ -1,8 +1,12 @@
 # lazarus-with-github-actions
 
+[![Actions Status](https://github.com/gcarreno/lazarus-with-github-actions/workflows/build-test/badge.svg)](https://github.com/gcarreno/lazarus-with-github-actions/actions)
+
 Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarreno/setup-lazarus)
 
 **Note**: For supported Lazarus versions and the associated FPC version consult the link above.
+
+![setup-lazarus logo](https://github.com/gcarreno/setup-lazarus/images/setup-lazarus-logo.png)
 
 ## Example usage
 
