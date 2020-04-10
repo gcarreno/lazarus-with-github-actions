@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v1.0.35
+      uses: gcarreno/setup-lazarus@v2
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
     - name: Build the Main Application
