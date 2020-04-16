@@ -1,20 +1,53 @@
 object frmMain: TfrmMain
-  Left = 390
-  Height = 307
-  Top = 250
+  Left = 377
+  Height = 358
+  Top = 182
   Width = 589
   Caption = 'Lazarus with GitHub Actions'
-  ClientHeight = 307
+  ClientHeight = 358
   ClientWidth = 589
   OnCreate = FormCreate
   Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
   object Panel1: TPanel
     Left = 0
-    Height = 307
+    Height = 80
     Top = 0
     Width = 589
-    Align = alClient
+    Align = alTop
     Caption = 'Panel1'
     TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 308
+    Width = 589
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 589
+    TabOrder = 1
+    object Button1: TButton
+      Left = 16
+      Height = 33
+      Top = 8
+      Width = 172
+      AutoSize = True
+      Caption = 'Trigger HTTP Client GET'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+  end
+  object VirtualStringTree1: TVirtualStringTree
+    Left = 0
+    Height = 228
+    Top = 80
+    Width = 589
+    Align = alClient
+    DefaultText = 'Node'
+    Header.AutoSizeIndex = 0
+    Header.Columns = <>
+    Header.MainColumn = -1
+    TabOrder = 2
   end
 end
