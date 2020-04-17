@@ -15,7 +15,7 @@ steps:
 - uses: actions/checkout@v2
 - uses: gcarreno/setup-lazarus@v2.1.7
   with:
-    lazarus-version: 'dist'
+    lazarus-version: "dist"
     include-packages: "Synapse 40.1"
 - run: lazbuild YourTestProject.lpi
 - run: YourTestProject
