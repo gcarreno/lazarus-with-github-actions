@@ -13,9 +13,10 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: gcarreno/setup-lazarus@v2.1
+- uses: gcarreno/setup-lazarus@v2.1.7
   with:
     lazarus-version: 'dist'
+    include-packages: "Synapse 40.1"
 - run: lazbuild YourTestProject.lpi
 - run: YourTestProject
 ```
@@ -44,9 +45,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v2.1
+      uses: gcarreno/setup-lazarus@v2.1.7
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
+        include-packages: "Synapse 40.1"
     - name: Build the Main Application
       run: lazbuild "src/lazaruswithgithubactions.lpi"
     - name: Build the Unit Tests Application
