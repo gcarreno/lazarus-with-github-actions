@@ -19,9 +19,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v2.1.4
+      uses: gcarreno/setup-lazarus@v2.1.5
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
+        include-packages: "Synapse 40.1, LCLExtensions, VirtualTreeView V5"
     - name: Build the Main Application
       run: lazbuild "src/lazaruswithgithubactions.lpi"
     - name: Build the Unit Tests Application
