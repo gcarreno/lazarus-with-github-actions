@@ -8,7 +8,6 @@ object frmMain: TfrmMain
   ClientWidth = 589
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
   object Panel1: TPanel
     Left = 0
     Height = 80
@@ -37,17 +36,5 @@ object frmMain: TfrmMain
       OnClick = Button1Click
       TabOrder = 0
     end
-  end
-  object VirtualStringTree1: TVirtualStringTree
-    Left = 0
-    Height = 228
-    Top = 80
-    Width = 589
-    Align = alClient
-    DefaultText = 'Node'
-    Header.AutoSizeIndex = 0
-    Header.Columns = <>
-    Header.MainColumn = -1
-    TabOrder = 2
   end
 end

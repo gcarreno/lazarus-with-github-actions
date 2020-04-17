@@ -13,7 +13,6 @@ uses
 , Dialogs
 , ExtCtrls, StdCtrls
 , httpsend
-, VirtualTrees
 , ResourceUnit;
 
 type
@@ -21,7 +20,6 @@ type
   { TfrmMain }
     TfrmMain = class(TForm)
     Panel1: TPanel;
-    VirtualStringTree1: TVirtualStringTree;
     Panel2: TPanel;
       Button1: TButton;
     procedure Button1Click(Sender: TObject);
