@@ -30,5 +30,6 @@ jobs:
     - name: Run the Unit Tests Application
       run: bin/testconsoleapplication "--all" "--format=xml" "--file=bin/testconsoleapplication.xml"
     - uses: actions/upload-artifact@v1
-      name: TestConsoleApplication
-      path: bin/testconsoleapplication.xml
+      with:
+        name: TestConsoleApplication
+        path: bin/testconsoleapplication.xml
