@@ -28,8 +28,4 @@ jobs:
     - name: Build the Unit Tests Application
       run: lazbuild "tests/testconsoleapplication.lpi"
     - name: Run the Unit Tests Application
-      run: bin/testconsoleapplication "--all" "--format=xml" "--file=bin/testconsoleapplication.xml"
-    - uses: actions/upload-artifact@v1
-      with:
-        name: TestConsoleApplication
-        path: bin/testconsoleapplication.xml
+      run: bin/testconsoleapplication "--all" "--format=plain"
