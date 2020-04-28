@@ -14,7 +14,8 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-18.04,ubuntu-latest,windows-latest]
+#        operating-system: [ubuntu-18.04,ubuntu-latest,windows-latest]
+        operating-system: [ubuntu-latest,windows-latest]
         lazarus-versions: [dist, 2.0.6, 1.6.4, 1.6.2, 1.4.4, 1.2]
     steps:
     - uses: actions/checkout@v2
