@@ -13,7 +13,7 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: gcarreno/setup-lazarus@v2.2.3
+- uses: gcarreno/setup-lazarus@v2.2.4
   with:
     lazarus-version: "dist"
     include-packages: "Synapse 40.1"
@@ -41,11 +41,11 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-18.04,ubuntu-latest]
-        lazarus-versions: [dist, 2.0.6]
+        lazarus-versions: [dist, stable, 2.0.6]
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v2.2.3
+      uses: gcarreno/setup-lazarus@v2.2.4
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
