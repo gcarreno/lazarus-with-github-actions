@@ -13,7 +13,7 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: gcarreno/setup-lazarus@v2.2.9
+- uses: gcarreno/setup-lazarus@v3.0
   with:
     lazarus-version: "dist"
     include-packages: "Synapse 40.1"
@@ -41,18 +41,22 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-18.04,ubuntu-latest]
-        lazarus-versions: [dist, stable, 2.0.10, 2.0.6]
+        lazarus-versions: [dist, stable, 2.0.10, 2.0.8]
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v2.2.9
+      uses: gcarreno/setup-lazarus@v3.0
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
     - name: Build the Main Application
-      run: lazbuild "src/lazaruswithgithubactions.lpi"
+      if: ${{ matrix.operating-system != 'macos-latest' }}
+      run: lazbuild -B "src/lazaruswithgithubactions.lpi"
+    - name: Build the Main Application (macOS)
+      if: ${{ matrix.operating-system == 'macos-latest' }}
+      run: lazbuild -B --ws=cocoa "src/lazaruswithgithubactions.lpi"
     - name: Build the Unit Tests Application
-      run: lazbuild "tests/testconsoleapplication.lpi"
+      run: lazbuild -B "tests/testconsoleapplication.lpi"
     - name: Run the Unit Tests Application
       run: bin/testconsoleapplication "--all" "--format=plain"
 ```
