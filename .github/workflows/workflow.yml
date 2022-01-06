@@ -33,8 +33,9 @@ jobs:
     - name: Build the Main Application (Ubuntu)
       if: ${{ matrix.operating-system == 'ubuntu-latest' }}
       run: |
-        lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
-        lazbuild -B --bm=Release --ws=qt "src/lazaruswithgithubactions.lpi"
+        echo Installing Qt4 Dev
+        sudo apt install libqt4pas-dev -y
+        lazbuild -B --bm=Release --ws=qt4 "src/lazaruswithgithubactions.lpi"
     - name: Build the Main Application (macOS)
       if: ${{ matrix.operating-system == 'macos-latest' }}
       run: lazbuild -B --bm=Release --ws=cocoa "src/lazaruswithgithubactions.lpi"
