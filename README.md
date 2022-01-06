@@ -49,14 +49,24 @@ jobs:
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
-    - name: Build the Main Application
-      if: ${{ matrix.operating-system != 'macos-latest' }}
-      run: lazbuild -B "src/lazaruswithgithubactions.lpi"
+    - name: Build the Main Application (Windows)
+      if: ${{ matrix.operating-system == 'windows-latest' }}
+      run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
+    - name: Build the Main Application (Ubuntu)
+      if: ${{ matrix.operating-system == 'ubuntu-latest' }}
+      run: |
+        echo Building with GTK2
+        lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
+        echo Installing Qt5 Dev
+        sudo apt update
+        sudo apt install libqt5pas-dev -y
+        echo Building with Qt5
+        lazbuild -B --bm=Release --ws=qt5 "src/lazaruswithgithubactions.lpi"
     - name: Build the Main Application (macOS)
       if: ${{ matrix.operating-system == 'macos-latest' }}
-      run: lazbuild -B --ws=cocoa "src/lazaruswithgithubactions.lpi"
+      run: lazbuild -B --bm=Release --ws=cocoa "src/lazaruswithgithubactions.lpi"
     - name: Build the Unit Tests Application
-      run: lazbuild -B "tests/testconsoleapplication.lpi"
+      run: lazbuild -B --bm=Release "tests/testconsoleapplication.lpi"
     - name: Run the Unit Tests Application
       run: bin/testconsoleapplication "--all" "--format=plain"
 ```
