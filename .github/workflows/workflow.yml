@@ -16,7 +16,8 @@ jobs:
       matrix:
 #        operating-system: [ubuntu-18.04, ubuntu-latest, windows-latest]
 #        operating-system: [ubuntu-latest, windows-latest]
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
+#        operating-system: [ubuntu-latest, windows-latest, macos-latest]
+        operating-system: [ubuntu-latest]
 #        lazarus-versions: [dist, stable, 2.0.12, 2.0.10, 2.0.6, 1.6.4, 1.6.2, 1.4.4, 1.2]
         lazarus-versions: [dist, stable, 2.0.12, 2.0.10]
     steps:
@@ -26,13 +27,18 @@ jobs:
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
-    - name: Build the Main Application
-      if: ${{ matrix.operating-system != 'macos-latest' }}
-      run: lazbuild -B "src/lazaruswithgithubactions.lpi"
+    - name: Build the Main Application (Windows)
+      if: ${{ matrix.operating-system == 'windows-latest' }}
+      run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
+    - name: Build the Main Application (Ubuntu)
+      if: ${{ matrix.operating-system == 'ubuntu-latest' }}
+      run: |
+        lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
+        lazbuild -B --bm=Release --ws=qt "src/lazaruswithgithubactions.lpi"
     - name: Build the Main Application (macOS)
       if: ${{ matrix.operating-system == 'macos-latest' }}
-      run: lazbuild -B --ws=cocoa "src/lazaruswithgithubactions.lpi"
+      run: lazbuild -B --bm=Release --ws=cocoa "src/lazaruswithgithubactions.lpi"
     - name: Build the Unit Tests Application
-      run: lazbuild -B "tests/testconsoleapplication.lpi"
+      run: lazbuild -B --bm=Release "tests/testconsoleapplication.lpi"
     - name: Run the Unit Tests Application
       run: bin/testconsoleapplication "--all" "--format=plain"
