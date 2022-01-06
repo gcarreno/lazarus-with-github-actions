@@ -13,7 +13,7 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: gcarreno/setup-lazarus@v3.0.14
+- uses: gcarreno/setup-lazarus@v3.0.15
   with:
     lazarus-version: "dist"
     include-packages: "Synapse 40.1"
