@@ -19,11 +19,11 @@ jobs:
 #        operating-system: [ubuntu-latest]
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
 #        lazarus-versions: [dist, stable, 2.0.12, 2.0.10, 2.0.6, 1.6.4, 1.6.2, 1.4.4, 1.2]
-        lazarus-versions: [dist, stable, 2.0.12, 2.0.10]
+        lazarus-versions: [dist, stable, 2.2.0, 2.0.12, 2.0.10]
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v3.0.16
+      uses: gcarreno/setup-lazarus@v3.0.17
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
