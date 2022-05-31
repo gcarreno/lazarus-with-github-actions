@@ -3,11 +3,8 @@ name: build-test
 on:
   pull_request:
   push:
-    paths-ignore:
-    - "README.md"
-    branches:
-      - master
-      - releases/*
+    paths-ignore: [ "README.md" ]
+    branches: [ "master", "releases/*" ]
 
 jobs:
   build:
