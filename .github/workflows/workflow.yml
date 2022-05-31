@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@main
+      uses: gcarreno/setup-lazarus@master
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
