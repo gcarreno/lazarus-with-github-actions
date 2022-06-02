@@ -24,7 +24,7 @@ jobs:
       uses: gcarreno/setup-lazarus@master
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
-        include-packages: "Synapse 40.1, LazBarcodes, VirtualTreeView V5, GifAnim"
+        include-packages: "Synapse 40.1, lazbarcodes, VirtualTreeView V5, gifanim"
         with-cache: false
     - name: Build the Main Application (Windows)
       if: ${{ matrix.operating-system == 'windows-latest' }}
