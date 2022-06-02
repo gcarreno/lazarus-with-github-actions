@@ -25,7 +25,7 @@ jobs:
       uses: gcarreno/setup-lazarus@master
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
-        include-packages: "Synapse 40.1, gifanim"
+        include-packages: "Synapse 40.1, GifAnim"
         with-cache: false
     - name: Build the Main Application (Windows)
       if: ${{ matrix.operating-system == 'windows-latest' }}
