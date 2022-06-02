@@ -13,10 +13,11 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: gcarreno/setup-lazarus@v3.0.17
+- uses: gcarreno/setup-lazarus@v3.2
   with:
     lazarus-version: "dist"
     include-packages: "Synapse 40.1"
+    with-cache: true
 - run: lazbuild YourTestProject.lpi
 - run: YourTestProject
 ```
@@ -45,10 +46,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v3.0.17
+      uses: gcarreno/setup-lazarus@v3.2
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
+        with-cache: true
     - name: Build the Main Application (Windows)
       if: ${{ matrix.operating-system == 'windows-latest' }}
       run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
