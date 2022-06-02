@@ -19,7 +19,8 @@ jobs:
 #        lazarus-versions: [dist, stable, 2.2.0, 2.0.12, 2.0.10]
         lazarus-versions: [stable, 2.2.0]
     steps:
-    - uses: actions/checkout@v2
+    - name: Cechout source code
+      uses: actions/checkout@v2
     - name: Install Lazarus
       uses: gcarreno/setup-lazarus@master
       with:
