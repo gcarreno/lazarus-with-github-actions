@@ -30,11 +30,21 @@ object frmMain: TfrmMain
       Left = 16
       Height = 33
       Top = 8
-      Width = 172
+      Width = 174
       AutoSize = True
       Caption = 'Trigger HTTP Client GET'
       OnClick = Button1Click
       TabOrder = 0
     end
+  end
+  object Memo1: TMemo
+    Left = 0
+    Height = 228
+    Top = 80
+    Width = 589
+    Align = alClient
+    ReadOnly = True
+    ScrollBars = ssAutoVertical
+    TabOrder = 2
   end
 end

@@ -24,7 +24,7 @@ jobs:
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
-#        with-cache: true
+        with-cache: false
     - name: Build the Main Application (Windows)
       if: ${{ matrix.operating-system == 'windows-latest' }}
       run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"

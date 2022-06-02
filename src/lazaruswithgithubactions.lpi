@@ -105,6 +105,7 @@
       <Unit0>
         <Filename Value="lazaruswithgithubactions.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="LazarusWithGitHubActions"/>
       </Unit0>
       <Unit1>
         <Filename Value="frmmainunit.pas"/>
