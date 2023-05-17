@@ -11,16 +11,11 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-#        operating-system: [ubuntu-18.04, ubuntu-latest, windows-latest]
-#        operating-system: [ubuntu-latest, windows-latest]
-#        operating-system: [ubuntu-latest]
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
-#        lazarus-versions: [dist, stable, 2.0.12, 2.0.10, 2.0.6, 1.6.4, 1.6.2, 1.4.4, 1.2]
         lazarus-versions: [dist, stable, 2.2.0, 2.0.12, 2.0.10]
-#        lazarus-versions: [stable, 2.2.0]
     steps:
     - name: Cechout source code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Install Lazarus
       uses: gcarreno/setup-lazarus@v3.2.5
       with:

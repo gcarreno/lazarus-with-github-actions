@@ -12,7 +12,7 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: actions/checkout@v3
 - uses: gcarreno/setup-lazarus@v3.2.5
   with:
     lazarus-version: "dist"
@@ -44,7 +44,7 @@ jobs:
         operating-system: [ubuntu-18.04,ubuntu-latest]
         lazarus-versions: [dist, stable, 2.0.12, 2.0.10]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install Lazarus
       uses: gcarreno/setup-lazarus@v3.2.5
       with:
