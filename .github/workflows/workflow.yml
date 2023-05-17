@@ -17,7 +17,7 @@ jobs:
     - name: Cechout source code
       uses: actions/checkout@v3
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v3.2.5
+      uses: gcarreno/setup-lazarus@v3.2.6
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
