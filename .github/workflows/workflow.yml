@@ -12,19 +12,23 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
-        lazarus-versions: [dist, stable, 2.2.0, 2.0.12, 2.0.10]
+        lazarus-versions: [dist, stable, 2.2.0, 2.0.12]
+
     steps:
     - name: Cechout source code
       uses: actions/checkout@v3
+
     - name: Install Lazarus
-      uses: gcarreno/setup-lazarus@v3.2.7
+      uses: gcarreno/setup-lazarus@v3
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
         include-packages: "Synapse 40.1"
         with-cache: true
+
     - name: Build the Main Application (Windows)
       if: ${{ matrix.operating-system == 'windows-latest' }}
       run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
+
     - name: Build the Main Application (Ubuntu)
       if: ${{ matrix.operating-system == 'ubuntu-latest' }}
       run: |
@@ -35,10 +39,13 @@ jobs:
         sudo apt install libqt5pas-dev -y
         echo Building with Qt5
         lazbuild -B --bm=Release --ws=qt5 "src/lazaruswithgithubactions.lpi"
+
     - name: Build the Main Application (macOS)
       if: ${{ matrix.operating-system == 'macos-latest' }}
       run: lazbuild -B --bm=Release --ws=cocoa "src/lazaruswithgithubactions.lpi"
+
     - name: Build the Unit Tests Application
       run: lazbuild -B --bm=Release "tests/testconsoleapplication.lpi"
+
     - name: Run the Unit Tests Application
       run: bin/testconsoleapplication "--all" "--format=plain"
