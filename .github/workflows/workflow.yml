@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
+        operating-system: [ubuntu-latest, ubuntu-20.04, windows-latest, macos-latest]
         lazarus-versions: [dist, stable, 2.2.6]
 
     steps:
