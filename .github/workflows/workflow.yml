@@ -10,6 +10,7 @@ jobs:
   build:
     runs-on: ${{ matrix.operating-system }}
     strategy:
+      fail-fast: false
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
         lazarus-versions: [dist, stable, 2.2.6]
