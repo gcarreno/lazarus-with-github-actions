@@ -8,6 +8,22 @@ Testing grounds for the GitHub action [setup-lazarus](https://github.com/gcarren
 
 ![setup-lazarus logo](https://github.com/gcarreno/setup-lazarus/blob/master/images/setup-lazarus-logo.png)
 
+## VERY IMPORTANT NOTICE
+
+> When build for the `Qt5` widgetset, the combination of `stable`/`v3.0` and `ubuntu-latest`/`ubuntu-22.04` is going to fail.
+>
+> This is why this example is failing when attempting the mentioned combination of widgetset, Lazarus version and Ubuntu version.
+>
+> This is due to the fact that `libqt5pas` is outdated and does not support the new code delivered by Lazarus 3.0.
+>
+> This is a problem related to the Ubuntu distribution's repositories and the version of `libqt5pas` they carry, used by the GitHub runners.
+>
+> According to the maintainer of said `libqt5pas`, in [this answer](https://forum.lazarus.freepascal.org/index.php/topic,65619.msg500216.html#msg500216), one solution is to have the workflow script download and install a newer version.
+>
+> The newer version can be obtained here: https://github.com/davidbannon/libqt5pas/releases
+>
+> Thank you for your patience, continued support and please accept my deepest apologies for this inconvenience.
+
 ## Example usage
 
 ```yaml
