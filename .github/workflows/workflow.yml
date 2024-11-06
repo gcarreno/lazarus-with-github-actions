@@ -23,7 +23,7 @@ jobs:
       uses: gcarreno/setup-lazarus@master
       with:
         lazarus-version: ${{ matrix.lazarus-versions }}
-        include-packages: "Synapse 40.1"
+        include-packages: "Synapse 40.1,CryptoLib4Pascal"
         with-cache: false
 
     - name: Build the Main Application (Windows)
