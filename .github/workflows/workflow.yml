@@ -31,7 +31,7 @@ jobs:
       run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
 
     - name: Build the Main Application (Ubuntu)
-      if: ${{ matrix.operating-system == 'ubuntu-latest' }}
+      if: ${{ matrix.operating-system == 'ubuntu-latest' || matrix.operating-system == 'ubuntu-20.04' }}
       run: |
         echo Building with GTK2
         lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
