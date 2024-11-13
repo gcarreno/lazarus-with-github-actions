@@ -35,11 +35,11 @@ jobs:
       run: |
         echo Building with GTK2
         lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
-        echo Installing Qt5 Dev
-        sudo apt update
-        sudo apt install libqt5pas-dev -y
-        echo Building with Qt5
-        lazbuild -B --bm=Release --ws=qt5 "src/lazaruswithgithubactions.lpi"
+#        echo Installing Qt5 Dev
+#        sudo apt update
+#        sudo apt install libqt5pas-dev -y
+#        echo Building with Qt5
+#        lazbuild -B --bm=Release --ws=qt5 "src/lazaruswithgithubactions.lpi"
 
     - name: Build the Main Application (macOS)
       if: ${{ matrix.operating-system == 'macos-latest' }}
