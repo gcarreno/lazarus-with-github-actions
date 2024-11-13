@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        operating-system: [ubuntu-latest, ubuntu-20.04, windows-latest, macos-latest]
+        operating-system: [ubuntu-latest, windows-latest, macos-latest]
         lazarus-versions: ["dist", "stable", "3.4", "2.2.6"]
 
     steps:
@@ -31,15 +31,15 @@ jobs:
       run: lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
 
     - name: Build the Main Application (Ubuntu)
-      if: ${{ matrix.operating-system == 'ubuntu-latest' || matrix.operating-system == 'ubuntu-20.04' }}
+      if: ${{ matrix.operating-system == 'ubuntu-latest' }}
       run: |
         echo Building with GTK2
         lazbuild -B --bm=Release "src/lazaruswithgithubactions.lpi"
-#        echo Installing Qt5 Dev
-#        sudo apt update
-#        sudo apt install libqt5pas-dev -y
-#        echo Building with Qt5
-#        lazbuild -B --bm=Release --ws=qt5 "src/lazaruswithgithubactions.lpi"
+        echo Installing Qt5 Dev
+        sudo apt update
+        sudo apt install libqt5pas-dev -y
+        echo Building with Qt5
+        lazbuild -B --bm=Release --ws=qt5 "src/lazaruswithgithubactions.lpi"
 
     - name: Build the Main Application (macOS)
       if: ${{ matrix.operating-system == 'macos-latest' }}
